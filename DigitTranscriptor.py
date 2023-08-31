@@ -6,7 +6,7 @@ import matplotlib as plt
 import pickle as pk
 import os as os
 
-df_test = pd.read_csv(os.getcwd()+'\\mnist_test.csv')
+df_test = pd.read_csv(os.getcwd()+'\\data\\mnist_test.csv')
 
 test = np.array(df_test).T
 
@@ -70,10 +70,10 @@ if __name__ == "__main__":
     b1 = paramarr[2]
     b2 = paramarr[3]
     k = 0
-    for i in range(0,200):
-        if test_prediction(random.randint(0, m), x_test, y_test, W1, W2, b1, b2):
+    for i in range(0, m):
+        if test_prediction(i, x_test, y_test, W1, W2, b1, b2):
             k = k+1
-    acc = k/200
+    acc = k/m
     print("Accuracy: "+(acc*100).__str__()+"%")
 
 
